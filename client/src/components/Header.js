@@ -2,6 +2,7 @@ import { AppBar,  Button, Toolbar, Typography, Box, Tabs,Tab } from '@mui/materi
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import image from '../images/remember-image.png'
 
 const Header = () => {
   const [value, setValue] = useState();
@@ -10,7 +11,7 @@ const Header = () => {
   return (
     <AppBar position='sticky' sx={{background:"linear-gradient(90deg, rgba(81,186,66,1) 25%, rgba(0,242,255,1) 80%);"}}>
       <Toolbar>
-          <Typography variant='h4'sx={{color:'white'}}>[REMEMBER].toCode</Typography>
+          <Typography variant='h4'sx={{color:'white'}}><img style={{width: "250px" ,height: "100px" }}src= {image} alt='just text'/></Typography>
           {/* box - acts as div inside the material UI*/}
           { isLoggedIn && <Box display="flex" marginLeft={'auto'} marginRight ={'auto'}>
             <Tabs  textColor ="inherit" value ={value} onChange ={(e,val) => setValue(val)}>

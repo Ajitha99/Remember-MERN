@@ -1,5 +1,7 @@
 import { Button, TextField, Typography, Box } from '@mui/material';
-import React, { useState } from 'react'
+import React, { useState } from 'react';
+import axios from "axios";
+import apiUrl from '../appConfig'
 
 function Auth() {
   const [isSignUp, setIsSignUp] = useState(false);
@@ -8,18 +10,42 @@ function Auth() {
     email:"",
     password: ""
   })
+
   const handleChange = (e) =>{
     e.preventDefault();
     setInputs((prevState) => ({
       ...prevState,
-      [e.target.name] : e.target.value
+      [e.target.name] : e.target.value,
     }))
   }
 
 
+  
+
+  const sendRequest = async () => {
+    try {
+
+      const response = await axios.post(` ${apiUrl}/users/login`,{
+        email: inputs.email.toLowerCase(),
+        password: inputs.password
+      });
+      const data = await response.data;
+      return data;
+
+    }catch(error){
+      console.log(error);
+    }
+  }
+
+  const handleSubmit = (e) =>{
+    e.preventDefault();
+    console.log(inputs);
+    sendRequest();
+  }
+
   return (
     <div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <Box 
           display="flex" 
           flexDirection={'column'} 
@@ -37,7 +63,7 @@ function Auth() {
           {isSignUp && <TextField name = 'name' placeholder='Name' value={inputs.name} onChange={handleChange}  margin ="normal"/>}
           <TextField name= 'email' placeholder='Email' value={inputs.email} onChange={handleChange}  type={'email'} margin ="normal"/>
           <TextField name= 'password' placeholder='Password' value={inputs.password} onChange={handleChange} type={'password'} margin ="normal"/>
-          <Button variant='contained' sx={{borderRadius: 2, backgroundColor:'#51ba42', color: 'white',fontWeight:'bolder', margin: 1,  "&:hover": {
+          <Button type ='submit' variant='contained' sx={{borderRadius: 2, backgroundColor:'#51ba42', color: 'white',fontWeight:'bolder', margin: 1,  "&:hover": {
       backgroundColor: "#5a7be3",
       color:"white"
     }}}>Submit</Button>

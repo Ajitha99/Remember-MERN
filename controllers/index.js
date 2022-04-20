@@ -28,9 +28,11 @@ const signup = async (req, res, next) =>{
     const { name, email, password } = req.body;
 
     let existUser;
-
+    const em = email.toLowerCase();
     try {
-        existUser = await User.findOne({email : email});
+        
+        console.log(em);
+        existUser = await User.findOne({email : em});
 
     } catch (error) {
         console.log(error);
@@ -41,7 +43,7 @@ const signup = async (req, res, next) =>{
     const hashedPwd = bcrypt.hashSync(password);
     const user = new User({
         name, //name: name
-        email,
+        email:em,
         password: hashedPwd,
         blogs: [],
         codeSnippets: [], 
@@ -59,9 +61,10 @@ const signup = async (req, res, next) =>{
 const login = async (req, res, next) =>{
     const {email, password } = req.body;
     let existUser;
-
+    const em = email.toLowerCase();
     try {
-        existUser = await User.findOne({email : email});
+        
+        existUser = await User.findOne({email : em});
 
     } catch (error) {
         console.log(error);
