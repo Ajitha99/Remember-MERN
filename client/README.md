@@ -1,70 +1,39 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### MVP - Minimum Viable Product
+For this project, you will be making another full CRUD app using the technologies outlined below.
+  <ul>
+   <li> A working full-stack application, built by you, using the MERN stack: Node.js, MongoDB/Mongoose, Express and React.</li>
+   <li> Node js, MySQL, Express and React.</li>
+   <li> At least one model with full CRUD.</li>
+    
+  <li> Include at least one of the following features:</li>
+    --------------------------------------------------
+        <ol>
+        <li> Authorization : Include sign up/login functionality, with encrypted/hashed passwords & an authorization flow</li>
+        <li> Pull from a third party API - either client side with AJAX or server-side with an NPM</li>
+              -> NPMs that work with an API: Twitter, Yelp, etc. Remember the axios module can make API calls server side to any URL.
+          <li> Have two models</li>
+              -> Have two separate models that don't have to be related 
+          <li> Have related models</li>
+              -> Models can be related in a one-to-many relationship, for example users can have many posts
+          <li> Use a CSS framework like Skeleton or Bootstrap or Material UI, or Ant Design or Tailwind CSS</li>
+          <li> Use React Router</li>
+         </ol>
+   <li> Be deployed online and accessible to the public via Heroku</li>
+   <li> Backend via Heroku, Frontend via Netlify</li>
+  <li> A daily commit history.</li>
+  <li> A README.mdfile with explanations of the technologies used, the approach taken, unsolved problems, user stories, and notes to yourself so you can come back to           your project later in the course and be able to pick up your train of thought, etc</li>
+        <ol>
+          <li> Have a link to your hosted working app in the README.mdfile in your github repo</li>
+          <li>Project Description - A brief explanation of the project you'll be building with the objective described in non-technical language. - An explanation of the            major challenges you expect to face while building this app and how you foresee your team solving them. - A section clearly defining MVP and POST MVP.</li>
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+          (a). Feature List List of pieces of functionality of the app.
+          (b). Entity Relationship Diagram (ERD) diagram of the database tables, schemas, and relations. You can draw them by hand or try on of these useful links for                    ERDs:(If you useMySQLasyourdatabase)
+               [lucidchart](https://www.lucidchart.com/pages/) This is a great tool for building ERDs.
+               [draw.io](<https://app.diagrams.net/>) Another great tool for ERDs.
+               [ERDPlus](<https://erdplus.com/>) Yet another great tool for ERDS.
+          (g). API Endpoint Documentations list of all of your servers routes, the structure of requests that you expect and the structure of responses they send.
+          (h). Wireframes sketches of the user interface with notes of how the user will interact with the UI.
+          (i). Component Heirarchy Wireframes should be broken into components which then should be described in a component heirarchy.
+          (j). List Dependencies link to any project dependencies (e.g. 3rd party APIs, libraries, linter, etc).</ol>
+  </ul>
