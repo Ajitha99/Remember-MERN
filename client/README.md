@@ -29,9 +29,9 @@ For this project, you will be making another full CRUD app using the technologie
 
           (a). Feature List List of pieces of functionality of the app.
           (b). Entity Relationship Diagram (ERD) diagram of the database tables, schemas, and relations. You can draw them by hand or try on of these useful links for                    ERDs:(If you useMySQLasyourdatabase)
-               <https://www.lucidchart.com/pages/>lucidchart This is a great tool for building ERDs.
-               <https://app.diagrams.net/>draw.io Another great tool for ERDs.
-               <https://erdplus.com/> ERDPlus Yet another great tool for ERDS.
+               [lucidchart](https://www.lucidchart.com/pages/) This is a great tool for building ERDs.
+               [draw.io](<https://app.diagrams.net/>) Another great tool for ERDs.
+               [ERDPlus](<https://erdplus.com/>) Yet another great tool for ERDS.
           (g). API Endpoint Documentations list of all of your servers routes, the structure of requests that you expect and the structure of responses they send.
           (h). Wireframes sketches of the user interface with notes of how the user will interact with the UI.
           (i). Component Heirarchy Wireframes should be broken into components which then should be described in a component heirarchy.
