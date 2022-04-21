@@ -1,9 +1,12 @@
 import { Button, TextField, Typography, Box } from '@mui/material';
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import axios from "axios";
-import apiUrl from '../appConfig'
+import apiUrl from '../appConfig';
+import { authActions } from '../store';
 
 function Auth() {
+  const dispatch = useDispatch();
   const [isSignUp, setIsSignUp] = useState(false);
   const [inputs, setInputs] = useState({
     name:"",
@@ -17,15 +20,15 @@ function Auth() {
       ...prevState,
       [e.target.name] : e.target.value,
     }))
+    // console.log(e.target.name, "value", e.target.value);
   }
 
 
-  
-
-  const sendRequest = async () => {
+  const sendRequest = async (type ="login") => {
     try {
 
-      const response = await axios.post(` ${apiUrl}/users/login`,{
+      const response = await axios.post(`${apiUrl}/users/${type}`,{
+        name: inputs.name,
         email: inputs.email.toLowerCase(),
         password: inputs.password
       });
@@ -39,8 +42,11 @@ function Auth() {
 
   const handleSubmit = (e) =>{
     e.preventDefault();
-    console.log(inputs);
-    sendRequest();
+    // console.log(inputs);
+    if(isSignUp)
+      sendRequest("signup").then(()=>dispatch(authActions.login())).then(data => console.log(data));
+    else
+      sendRequest("login").then(()=>dispatch(authActions.login())).then(data => console.log(data));
   }
 
   return (
@@ -64,9 +70,10 @@ function Auth() {
           <TextField name= 'email' placeholder='Email' value={inputs.email} onChange={handleChange}  type={'email'} margin ="normal"/>
           <TextField name= 'password' placeholder='Password' value={inputs.password} onChange={handleChange} type={'password'} margin ="normal"/>
           <Button type ='submit' variant='contained' sx={{borderRadius: 2, backgroundColor:'#51ba42', color: 'white',fontWeight:'bolder', margin: 1,  "&:hover": {
-      backgroundColor: "#5a7be3",
-      color:"white"
-    }}}>Submit</Button>
+            backgroundColor: "#5a7be3",
+            color:"white"
+              // }}}>Submit</Button>
+            }}}>{isSignUp? "Sign Up" : "Login"}</Button>
           <Button onClick={() =>setIsSignUp(!isSignUp)} sx={{borderRadius: 2, backgroundColor:'#51ba42', color: 'white',fontWeight:'bolder', margin: 1,"&:hover": {
       backgroundColor: "#5a7be3",
       color:"white"
