@@ -1,5 +1,6 @@
 import { Button, TextField, Typography, Box } from '@mui/material';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from "axios";
 import apiUrl from '../appConfig';
@@ -7,6 +8,7 @@ import { authActions } from '../store';
 
 function Auth() {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const [isSignUp, setIsSignUp] = useState(false);
   const [inputs, setInputs] = useState({
     name:"",
@@ -40,13 +42,25 @@ function Auth() {
     }
   }
 
-  const handleSubmit = (e) =>{
+  const handleSubmit = async (e) =>{
     e.preventDefault();
     // console.log(inputs);
     if(isSignUp)
-      sendRequest("signup").then(()=>dispatch(authActions.login())).then(data => console.log(data));
+      sendRequest("signup").then(()=>dispatch(authActions.login())).then(()=>navigate('/blogs')).then(data => console.log(data));
+      // {
+      //   const res = await sendRequest("signup").then(() => navigate('/auth'));
+      //   console.log("successfully signup - use login");
+      //   setInputs(" ");
+      //   // console.log(JSON.stringify(res.data));
+      // }
     else
-      sendRequest("login").then(()=>dispatch(authActions.login())).then(data => console.log(data));
+      sendRequest("login").then(()=>dispatch(authActions.login())).then(()=>navigate('/blogs')).then(data => console.log(data));
+        // {
+        //   const result = await sendRequest("login");
+        //   dispatch(authActions.login());
+        //   // console.log(result.data);
+        // }
+
   }
 
   return (
