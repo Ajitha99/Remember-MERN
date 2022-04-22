@@ -1,6 +1,6 @@
 import { Box, Button, TextField,Typography } from '@mui/material'
 
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import axios from "axios";
 import apiUrl from '../appConfig';
 import { useNavigate } from 'react-router-dom';
@@ -12,31 +12,38 @@ function SignUp() {
         email : "",
         password :""
     });
-const handleChange= (e) =>{
+    const [createdItem, setCreatedItem] = useState(null);
+    const handleChange= (e) =>{
 
     setInputs((prevState) => ({
         ...prevState,
         [e.target.name] : e.target.value,
     }))
     // console.log(e.target.name, "value",e.target.value);
-}
+    }
 
-const sendRequest = async () =>{
-    const res = await axios.post(`${apiUrl}/users/signup`, {
+    const sendRequest = async () =>{
+        const res = await axios.post(`${apiUrl}/users/signup`, {
         name: inputs.name,
         email: inputs.email,
         password: inputs.password
-    }).catch(err => console.log(err));
-    const data = await res.data;
-    return data;
-}
+        }).catch(err => console.log(err));
+        const data = await res.data;
+        return data;
+    }
 
 
-const handleSubmit = (e) =>{
+    const handleSubmit = (e) =>{
     e.preventDefault();
     // console.log(inputs);
-    sendRequest().then(()=>navigate("/login"));
-}
+    sendRequest().then(data => setCreatedItem(data)).catch(console.error);
+    }
+
+    useEffect(() =>{
+        if(createdItem){
+          return navigate('/login')
+        }
+      },[createdItem,navigate])
 
   return (
     <div>

@@ -20,7 +20,7 @@ const UserCodes = () => {
   }
   useEffect(()=>{
     fetchData();
-  },[])
+  },[id])
   return (
     <div>
       <Box
@@ -29,13 +29,15 @@ const UserCodes = () => {
         justifyContent={'center'} 
         margin = {5} 
         ><Button variant = 'contained' sx = {{fontSize:20}} onClick ={()=>{navigate("/codes/add")}}>Add SNIPPET +</Button></Box>
-     {codes && codes.map((code,index) =>(
-           <Code 
-           key={index}
-           title = {code.title}
-           snippet={code.snippet}
-           userName={code.user.name}
-           />
+
+        {/* {(codes.length) === 0 ? "No blogs to display" : ""} */}
+            {codes && codes.map((code,index) =>(
+                <Code 
+                  key={index}
+                  title = {code.title}
+                  snippet={code.snippet}
+                  userName={code.user.name}
+                />
         ))}
     </div>
   )
