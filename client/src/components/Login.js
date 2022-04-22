@@ -7,9 +7,11 @@ import apiUrl from '../appConfig';
 import { useNavigate } from 'react-router-dom';
 
 
+
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  
   const [inputs,setInputs] = useState({
       email : "",
       password :""
@@ -27,8 +29,10 @@ const sendRequest = async () =>{
   const res = await axios.post(`${apiUrl}/users/login`, {
       email: inputs.email,
       password: inputs.password
-  }).catch(err => console.log(err));
+  }).catch(error => console.log(error));
   const data = await res.data;
+  // window.alert(data.message);
+  console.log(data);
   return data;
 }
 
@@ -36,7 +40,9 @@ const sendRequest = async () =>{
 const handleSubmit = (e) =>{
   e.preventDefault();
   // console.log(inputs);
-  sendRequest().then(()=>dispatch(authActions.login())).then(()=>navigate("/blogs"));
+  sendRequest().then((data)=>localStorage.setItem("userId",data.user._id))
+  .then(()=>dispatch(authActions.login())).then(()=>navigate("/"));
+  // .then(()=>dispatch(authActions.login())).then(()=>navigate("/blogs"))
 }
 
 return (

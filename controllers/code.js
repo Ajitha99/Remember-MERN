@@ -4,7 +4,7 @@ const User = require('../models/user');
 
 const getAllCode = async (req, res)=>{
     try {
-        const codes = await Code.find()
+        const codes = await Code.find().populate('user');
         return res.status(200).json({codes})
     } catch (error) {
         return res.status(500).send(error.message)

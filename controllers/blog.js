@@ -5,7 +5,7 @@ const User = require('../models/user');
 const getAllBlogs = async (req, res)=>{
     
     try {
-        const blogs = await Blog.find()
+        const blogs = await Blog.find().populate('user');
         return res.status(200).json({blogs})
     } catch (error) {
         return res.status(500).send(error.message)
@@ -74,10 +74,10 @@ const updateBlogPost = async (req, res) =>{
         const {id} = req.params
         Blog.findByIdAndUpdate(id, req.body, { new: true }, (err, blog) => {
             if(err){
-                res.status(500).send(err);
+               return res.status(500).send(err);
             }
             if(!blog){
-                res.status(500).json({message: 'Blog not found!'});
+               return res.status(500).json({message: 'Blog not found!'});
             }
             return res.status(200).json(blog);
         })

@@ -72,13 +72,14 @@ const login = async (req, res, next) =>{
     //generating a jwt token for the user-after login is successful;
     //using user_id to generate JWT token -uses {HSA-256} behind the scene
     const jwtToken = jwt.sign({id: existUser._id}, JWT_SECRETKEY,{
-    //   expiresIn:"1hr"  
-         expiresIn:"30sec"  
+    expiresIn:"5hrs"  
+        //  expiresIn:"30sec"  
     });
 
     res.cookie(String(existUser._id), jwtToken, {
         path:'/',
-        expires: new Date(Date.now() + 1000 * 30), //expiry date and time(30sec's)
+        // expires: new Date(Date.now() + 1000 * 30), //expiry date and time(30sec's)
+         expirtes: new Date(Number(new Date()) + 315360000000),
         httpOnly: true, //if we dont specify, this cookie is available in front end when we go to  inspect-> console->document.cookie , to avoid this for security reasons.. we give httpOnly : true  
         sameSite:'lax',
     });
@@ -96,7 +97,7 @@ const verifyJWTtoken = (req, res, next)=>{
     // //now we need to get the token and verify
     // const token = header.split(" ")[1];
     if(!token){
-      res.status(404).json({message:"No token found"})  
+      return res.status(404).json({message:"No token found"})  
     }
     jwt.verify(String(token), JWT_SECRETKEY, (error,user)=>{
         if(error){

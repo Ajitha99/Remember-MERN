@@ -1,13 +1,17 @@
 import { AppBar,  Button, Toolbar, Typography, Box, Tabs,Tab } from '@mui/material';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import image from '../images/remember-image.png'
 import { authActions } from '../store';
+import { blue } from '@mui/material/colors';
+
 
 const Header = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const [value, setValue] = useState(0);
+ 
   const isLoggedIn = useSelector(state => state.isLoggedIn);
   
   const handleChange =(e,val) =>{
@@ -18,23 +22,41 @@ const Header = () => {
   return (
     <AppBar position='sticky' sx={{background:"linear-gradient(90deg, rgba(81,186,66,1) 25%, rgba(0,242,255,1) 80%);"}}>
       <Toolbar>
-          <Typography variant='h4'sx={{color:'white'}}><img style={{width: "250px" ,height: "100px" }}src= {image} alt='just text'/></Typography>
+          <Typography variant='h4'sx={{color:'white'}}><img style={{width: "250px" ,height: "100px" }}src= {image} alt='just text' onClick = {()=>navigate("/")}/></Typography>
 
           {/* box - acts as div inside the material UI*/}
             
-            {!isLoggedIn && <Box display="flex" marginLeft={'auto'} marginRight ={'auto'}>
+            {/* {!isLoggedIn && <Box display="flex" marginLeft={'auto'} marginRight ={'auto'}>
             <Tabs  textColor ="inherit" value ={value} onChange ={handleChange}>
               <Tab LinkComponent={Link} to="/blogs" label = "All Blogs"/>
               <Tab LinkComponent={Link} to="/codes" label = "All Code Snippets"/>
             </Tabs>
-            </Box> }
+            </Box> } */}
 
           { isLoggedIn && <Box display="flex" marginLeft={'auto'} marginRight ={'auto'}>
-            <Tabs  textColor ="inherit" value ={value} onChange ={handleChange}>
-              <Tab LinkComponent={Link} to="/blogs" label = "All Blogs"/>
-              <Tab LinkComponent={Link} to="/codes" label = "All Code Snippets"/>
-              <Tab LinkComponent={Link} to="/myBlogs" label = "My Blogs"/>
-              <Tab LinkComponent={Link} to="/myCodes" label = "My Code Snippets" />
+            {/* <Tabs  textColor ="inherit" value ={value} onChange ={handleChange}> */}
+            <Tabs  textColor ="inherit" >
+              <Tab LinkComponent={Link} to="/blogs" label = "All Blogs" variant="contained" sx={{color: 'blue',fontWeight:'bolder',fontSize :20, margin: 1,"&:hover": {
+        textDecoration:"underline",
+        fontSize: 21,
+        color: 'blue',
+      fontWeight:"bolder"
+      }}}/>
+              <Tab LinkComponent={Link} to="/codes" label = "All Code Snippets" sx={{color: 'blue',fontWeight:'bolder',fontSize :20, margin: 1,"&:hover": {
+        textDecoration:"underline",
+        fontSize: 21,
+      fontWeight:"bolder"
+      }}}/>
+              <Tab LinkComponent={Link} to="/myBlogs" label = "My Blogs" sx={{color: 'blue',fontWeight:'bolder', fontSize :20, margin: 1,"&:hover": {
+        textDecoration:"underline",
+        fontSize: 21,
+      fontWeight:"bolder"
+      }}}/>
+              <Tab LinkComponent={Link} to="/myCodes" label = "My Code Snippets" sx={{color: 'blue',fontWeight:'bolder', fontSize :20, margin: 1,"&:hover": {
+        textDecoration:"underline",
+        fontSize: 21,
+      fontWeight:"bolder"
+      }}} />
             </Tabs>
           </Box>}
           {/* <Box display="flex" marginLeft="auto" >
