@@ -1,7 +1,11 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
-import Auth from "./components/Auth";
+// import Auth from "./components/Auth";
+import Login from "./components/Login";
+import SignUp from "./components/SignUp";
+
+
 import Blogs from "./components/Blogs";
 import Codes from "./components/Codes";
 import AddBlog from "./components/AddBlog";
@@ -24,7 +28,9 @@ function App() {
     </header>
     <main>
       <Routes>
-        <Route path ='/auth' element={<Auth/>}/>
+        {/* <Route path ='/auth' element={<Auth/>}/> */}
+        <Route path ='/login' element={<Login/>}/>
+        <Route path ='/signup' element={<SignUp/>}/>
         <Route path ='/blogs' element={<Blogs/>}/>
         <Route path ='/codes' element={<Codes/>} />
         <Route path ='/blogs/add' element={<AddBlog/>} />

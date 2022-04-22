@@ -26,7 +26,29 @@ function Auth() {
   }
 
 
-  const sendRequest = async (type ="login") => {
+  // const sendRequest = async (type) => {
+  //   try {
+
+  //     const response = await axios.post(`${apiUrl}/users/${type}`,{
+  //       name: inputs.name,
+  //       email: inputs.email.toLowerCase(),
+  //       password: inputs.password
+  //     });
+  //     const data = await response.data;
+  //     console.log(data.message);
+  //     if(data.message != `User doesn't exist, please signup!`)
+  //       {
+  //         return data;
+  //       }
+  //       else{
+  //         console.log(data.message);
+  //       }
+
+  //   }catch(error){
+  //     console.log(error);
+  //   }
+  // }
+  const sendRequest = async (type) => {
     try {
 
       const response = await axios.post(`${apiUrl}/users/${type}`,{
@@ -35,7 +57,16 @@ function Auth() {
         password: inputs.password
       });
       const data = await response.data;
-      return data;
+      console.log(data.message);
+      if(data.message !== `User doesn't exist, please signup!`)
+        {
+          const res = await axios.get(`${apiUrl}/users/userVerify`)
+          console.log(res);
+          
+        }
+        else{
+          console.log(data.message);
+        }
 
     }catch(error){
       console.log(error);
@@ -44,24 +75,28 @@ function Auth() {
 
   const handleSubmit = async (e) =>{
     e.preventDefault();
-    // console.log(inputs);
     if(isSignUp)
-      sendRequest("signup").then(()=>dispatch(authActions.login())).then(()=>navigate('/blogs')).then(data => console.log(data));
-      // {
-      //   const res = await sendRequest("signup").then(() => navigate('/auth'));
-      //   console.log("successfully signup - use login");
-      //   setInputs(" ");
-      //   // console.log(JSON.stringify(res.data));
-      // }
+      sendRequest("signup").then(()=>dispatch(authActions.login())).then(()=>navigate('/blogs')).then(data => console.log(data)).catch((error) => console.log(error));
+      
     else
       sendRequest("login").then(()=>dispatch(authActions.login())).then(()=>navigate('/blogs')).then(data => console.log(data));
-        // {
-        //   const result = await sendRequest("login");
-        //   dispatch(authActions.login());
-        //   // console.log(result.data);
-        // }
 
   }
+
+  // const handleSubmit = async (e) =>{
+  //   e.preventDefault();
+  //   // console.log(inputs);
+  //   if(isSignUp)
+  //     sendRequest("signup").then(()=>dispatch(authActions.login())).then(()=>navigate('/blogs')).then(data => console.log(data)).catch((error) => console.log(error));
+      
+  //   else
+  //     sendRequest("login").then(()=>dispatch(authActions.login())).then(()=>navigate('/blogs')).then(data => console.log(data));
+  //       // {
+  //       //   const result = await sendRequest("login");
+  //       //   dispatch(authActions.login());
+  //       //   // console.log(result.data);
+  //       // }
+  // }
 
   return (
     <div>

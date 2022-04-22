@@ -98,7 +98,7 @@ const verifyJWTtoken = (req, res, next)=>{
     if(!token){
       res.status(404).json({message:"No token found"})  
     }
-    jwt.verify(String(token),JWT_SECRETKEY,(error,user)=>{
+    jwt.verify(String(token), JWT_SECRETKEY, (error,user)=>{
         if(error){
             return res.status(400).json({message:"Invalid Token"})
         }
