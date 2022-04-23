@@ -141,7 +141,7 @@ const deleteBlogById = async (req,res)=>{
         if(!userBlogs){
             return res.status(404).json({message: "There are no blogs to display!"})
         }
-        return res.status(200).json({ blogs: userBlogs });
+        return res.status(200).json({ user: userBlogs });
     }
 
 

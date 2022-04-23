@@ -6,14 +6,17 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Button } from '@mui/material';
 
 const UserCodes = () => {
-  const [codes,setCodes] = useState([])
+  const [user,setUser] = useState({});
+  const [codes,setCodes] = useState([]);
   const id = localStorage.getItem("userId");
   const navigate = useNavigate();
   const fetchData = async () =>{
     try {
       const response = await axios.get(`${apiUrl}/codes/user/${id}`);
-      console.log(response.data.Codes.codeSnippets);
-      setCodes(response.data.Codes.codeSnippets);
+      console.log(response.data.user);
+      setUser(response.data.user);
+      setCodes(response.data.user.codeSnippets);
+      // setCodes(response.data.Codes.codeSnippets);
     } catch (error) {
       console.log(error);
     }
@@ -31,12 +34,12 @@ const UserCodes = () => {
         ><Button variant = 'contained' sx = {{fontSize:20}} onClick ={()=>{navigate("/codes/add")}}>Add SNIPPET +</Button></Box>
 
         {/* {(codes.length) === 0 ? "No blogs to display" : ""} */}
-            {codes && codes.map((code,index) =>(
+            {user && codes && codes.map((code,index) =>(
                 <Code 
                   key={index}
                   title = {code.title}
                   snippet={code.snippet}
-                  userName={code.user.name}
+                  userName={user.name}
                 />
         ))}
     </div>

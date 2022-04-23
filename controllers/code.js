@@ -113,7 +113,7 @@ const getCodesByUserId = async ( req, res) =>{
     if(!userCodes){
         return res.status(404).json({message: "There are no code snippets to display!"})
     }
-    return res.status(200).json({ Codes: userCodes });
+    return res.status(200).json({ user: userCodes });
 }
 
 module.exports = {
