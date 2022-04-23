@@ -13,6 +13,7 @@ import UserBlogs from "./components/UserBlogs";
 import BlogDetails from "./components/BlogDetails";
 import UserCodes from "./components/UserCodes";
 import CodeDetails from "./components/CodeDetails";
+import Protected from "./components/Protected";
 import { useSelector } from 'react-redux';
 
 
@@ -31,15 +32,15 @@ function App() {
         <Route path ='/' element={<Main/>}/>
         <Route path ='/login' element={<Login/>}/>
         <Route path ='/signup' element={<SignUp/>}/>
-        <Route path ='/blogs' element={<Blogs/>}/>
-        <Route path ='/codes' element={<Codes/>} />
-        <Route path ='/blogs/add' element={<AddBlog/>} />
-        <Route path ='/codes/add' element={<AddCode/>}/>
-        <Route path ='/myBlogs' element={<UserBlogs/>}/>
-        <Route path ='/myBlogs/:id' element={<BlogDetails/>} />
-        <Route path ='/myCodes' element={<UserCodes/>}/>
-        <Route path ='/myCodes/:id' element = {<CodeDetails/>} />
-        
+        <Route path ='/blogs' element={<Protected isLoggedIn={isLoggedIn}><Blogs/></Protected>}/>
+        <Route path ='/codes' element={<Protected isLoggedIn={isLoggedIn}><Codes/></Protected>} />
+        <Route path ='/blogs/add' element={<Protected isLoggedIn={isLoggedIn}><AddBlog/></Protected>} />
+        <Route path ='/codes/add' element={<Protected isLoggedIn={isLoggedIn}><AddCode/></Protected>} />
+        <Route path ='/myBlogs' element={<Protected isLoggedIn={isLoggedIn}><UserBlogs/></Protected>} />
+        <Route path ='/myBlogs/:id' element={<Protected isLoggedIn={isLoggedIn}><BlogDetails/></Protected>} />
+        <Route path ='/myCodes' element={<Protected isLoggedIn={isLoggedIn}><UserCodes/></Protected>} />
+        <Route path ='/myCodes/:id' element={<Protected isLoggedIn={isLoggedIn}><CodeDetails/></Protected>} />
+
       </Routes>
     </main>
   </React.Fragment>
