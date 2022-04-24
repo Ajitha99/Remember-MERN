@@ -11,6 +11,8 @@ import { useNavigate } from 'react-router-dom';
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
+  // const [loginStatus, setLoginStatus] = useState("");
   
   const [inputs,setInputs] = useState({
       email : "",
@@ -31,6 +33,7 @@ const sendRequest = async () =>{
       password: inputs.password
   }).catch(error => console.log(error));
   const data = await res.data;
+ 
   // window.alert(data.message);
   console.log(data);
   return data;
@@ -66,6 +69,7 @@ return (
           backgroundColor: "#5a7be3",
           color:"white"
           }}}>Login</Button>
+          {/* <h1>{loginStatus}</h1>  can also use <InputLabel> from mui*/}
           </Box>
       </form>
   </div>

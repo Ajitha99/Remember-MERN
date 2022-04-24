@@ -7,12 +7,12 @@ import apiUrl from '../appConfig';
 const AddBlog = () => {
   const id = localStorage.getItem("userId");
   const navigate = useNavigate();
+  const [createdItem, setCreatedItem] = useState(null);
   const [inputs,setInputs] = useState({
     title : "",
     description : "",
     image :"",
 });
-const [createdItem, setCreatedItem] = useState(null);
 
 const handleChange = (e) =>{
   setInputs((prevState) => ({

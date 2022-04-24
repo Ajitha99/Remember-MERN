@@ -1,28 +1,32 @@
 import { AppBar,  Button, Toolbar, Typography, Box, Tabs,Tab } from '@mui/material';
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import image from '../images/remember-image.png'
 import { authActions } from '../store';
-import { blue } from '@mui/material/colors';
+
+
 
 
 const Header = () => {
+ 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [value, setValue] = useState(0);
+  // const [value, setValue] = useState(0);
  
   const isLoggedIn = useSelector(state => state.isLoggedIn);
   
-  const handleChange =(e,val) =>{
-    setValue(val);
-  }
+  // const handleChange =(e,val) =>{
+  //   setValue(val);
+  // }
 
 
   return (
     <AppBar position='sticky' sx={{background:"linear-gradient(90deg, rgba(81,186,66,1) 25%, rgba(0,242,255,1) 80%);"}}>
       <Toolbar>
           <Typography variant='h4'sx={{color:'white'}}><img style={{width: "250px" ,height: "100px" }}src= {image} alt='just text' onClick = {()=>navigate("/")}/></Typography>
+         
+  
 
           {/* box - acts as div inside the material UI*/}
             

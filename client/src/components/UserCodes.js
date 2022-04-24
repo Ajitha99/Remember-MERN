@@ -30,7 +30,7 @@ const UserCodes = () => {
 
   const handleRouting = () =>{
     if(isLoggedIn){
-      navigate("/blogs/add");
+      navigate("/codes/add");
     }
     else navigate("/");
   }
@@ -48,6 +48,7 @@ const UserCodes = () => {
             {user && codes && codes.map((code,index) =>(
                 <Code 
                   key={index}
+                  isUser = {true}
                   title = {code.title}
                   snippet={code.snippet}
                   userName={user.name}

@@ -5,7 +5,7 @@ import apiUrl from '../appConfig';
 axios.defaults.withCredentials = true;
 const Codes = () => {
   const [codes, setCodes] = useState([]);
-  
+  const id = localStorage.getItem("userId");
 
   const fetchData = async () =>{
     try {
@@ -30,6 +30,7 @@ const Codes = () => {
     {codes && codes.map((code,index) =>(
         <Code
         key={index}
+        isUser = {id === code.user._id}
         title = {code.title}
         snippet={code.snippet}
         userName={code.user.name}

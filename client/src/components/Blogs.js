@@ -7,6 +7,7 @@ axios.defaults.withCredentials = true;
 const Blogs = () => {
 
   const [blogs, setBlogs] = useState([]);
+  const id = localStorage.getItem("userId");
 
   // const [user, setUser] = useState();
 
@@ -21,7 +22,7 @@ const Blogs = () => {
   const fetchData = async () =>{
     try {
       const response = await axios.get(`${apiUrl}/blogs/`,{withCredentials: true});
-      console.log(response.data.blogs);
+      console.log(response.data);
       setBlogs(response.data.blogs);
 
     } catch (error) {
@@ -42,6 +43,8 @@ const Blogs = () => {
       {blogs && blogs.map((blog,index) =>(
           <Blog
           key={index}
+          isUser = {id === blog.user._id}
+          id = {blog.user._id}
           title = {blog.title}
           description={blog.description}
           imageUrl ={blog.image}

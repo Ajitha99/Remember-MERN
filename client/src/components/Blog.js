@@ -1,9 +1,17 @@
-import { Avatar, Card, CardContent, CardHeader, CardMedia, Typography } from '@mui/material'
-import React from 'react'
+import { Avatar, Card, CardContent, CardHeader, CardMedia, Icon, IconButton, Typography,Box, bottomNavigationClasses } from '@mui/material'
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
+import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 
-function Blog({title, description, imageUrl, userName}) {
+function Blog({id ,title, description, imageUrl, userName , isUser}) {
+  //console.log(title,isUser)
+  console.log(id);
+  const navigate = useNavigate();
+  
   return (
     <div>
+      {" "}
       <Card sx={{ width: "50%", margin:'auto',marginTop: 2,padding: 2, borderRadius: 3, boxShadow :"5px 5px 10px #69b4b9","&:hover": { 
         boxShadow: "10px 10px 20px #51ba42"  
       }}}>
@@ -28,6 +36,14 @@ function Blog({title, description, imageUrl, userName}) {
           <b>{userName} : </b>{description}
         </Typography>
       </CardContent>
+      {
+        isUser && (
+          <Box sx={{float:'right'}} display = 'flex'>
+            <IconButton onClick={()=>navigate(`/myBlogs/${id}`)}><ModeEditOutlineIcon/></IconButton>
+            <IconButton ><DeleteOutlineIcon/></IconButton>
+          </Box>
+        )
+      }
      
       </Card>
     </div>
