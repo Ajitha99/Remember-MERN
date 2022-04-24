@@ -1,0 +1,12 @@
+@media (min-aspect-ration: 16/9){
+    .video-div{
+        width: 100%;
+        height:auto;
+    }
+}
+@media (max-aspect-ration: 16/9){
+    .video-div{
+        width: auto;
+        height:100%;
+    }
+}

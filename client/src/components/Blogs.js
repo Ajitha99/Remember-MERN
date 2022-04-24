@@ -44,7 +44,7 @@ const Blogs = () => {
           <Blog
           key={index}
           isUser = {id === blog.user._id}
-          id = {blog.user._id}
+          id = {blog._id}
           title = {blog.title}
           description={blog.description}
           imageUrl ={blog.image}

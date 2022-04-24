@@ -3,6 +3,7 @@ import axios from "axios";
 import Code from './Code';
 import apiUrl from '../appConfig';
 axios.defaults.withCredentials = true;
+
 const Codes = () => {
   const [codes, setCodes] = useState([]);
   const id = localStorage.getItem("userId");
@@ -31,6 +32,7 @@ const Codes = () => {
         <Code
         key={index}
         isUser = {id === code.user._id}
+        id = {code._id}
         title = {code.title}
         snippet={code.snippet}
         userName={code.user.name}

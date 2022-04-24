@@ -49,6 +49,7 @@ const UserCodes = () => {
                 <Code 
                   key={index}
                   isUser = {true}
+                  id={code._id}
                   title = {code.title}
                   snippet={code.snippet}
                   userName={user.name}

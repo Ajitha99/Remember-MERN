@@ -1,13 +1,15 @@
 import axios from 'axios';
 import { Box, Button, InputLabel, TextField, Typography } from '@mui/material';
 import React,{useState, useEffect} from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import apiUrl from '../appConfig';
 
-const CodeBlogDetails = () => {
+const BlogDetails = () => {
   const id = useParams().id;
+  const navigate = useNavigate();
   const [blogData, setBlogData] = useState({});
-  const [inputs,setInputs] = useState({});
+  const [inputs,setInputs] = useState();
+  const [updateItem, setUpdateItem] = useState(null);
 
 const handleChange = (e) =>{
   setInputs((prevState) => ({
@@ -15,28 +17,57 @@ const handleChange = (e) =>{
     [e.target.name] : e.target.value,
 }))
 }
-const handleSumbit=()=>{
-
+const handleSumbit=(e)=>{
+  e.preventDefault();
+  console.log(inputs);
+  updateRequest().then((data) =>setUpdateItem(data)).catch(error => console.log(error))
 }
   //console.log(id);
   const fetchBlogData = async () =>{
     try {
       const response = await axios.get(`${apiUrl}/blogs/${id}`);
       console.log(response.data.blog);
-      setBlogData(response.data.blog);
-     
+      // setBlogData(response.data.blog);
+      // setInputs({
+      //   title: blogData.title,
+      //   description: blogData.description,
+      //   image: blogData.image
+      // })
+      const data = response.data.blog;
+      return data;
     } catch (error) {
       console.log(error);
     }
   }
   useEffect(()=>{
-    fetchBlogData();
-    setInputs({
-      title: blogData.title,
-      description: blogData.description,
-      image: blogData.image
-    })
-  },[id])
+    fetchBlogData().
+    then((data) => {
+      setBlogData(data);
+      setInputs({
+        title: blogData.title,
+        description: blogData.description,
+        image: blogData.image
+      })
+    });
+  },[id,blogData.title,blogData.description,blogData.image])
+
+  useEffect(() =>{
+    if(updateItem){
+      return navigate('/myBlogs')
+    }
+  },[updateItem,navigate])
+
+  const updateRequest = async () =>{
+    const res = await axios.put(`${apiUrl}/blogs/update/${id}`,{
+      title: inputs.title,
+      description: inputs.description,
+      image: inputs.image
+    }).catch(error => console.log(error));
+    const data = await res.data;
+    return data;
+
+  }
+
 
   return (
     <div>
@@ -72,4 +103,4 @@ const handleSumbit=()=>{
   )
 }
 
-export default CodeBlogDetails
+export default BlogDetails

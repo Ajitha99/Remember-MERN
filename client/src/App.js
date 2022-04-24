@@ -19,6 +19,7 @@ import { useSelector } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Switch } from "@mui/material";
+import NotFound from "./components/NotFound";
 
 // const darkTheme = createTheme({
 //   palette: {
@@ -56,7 +57,7 @@ function App() {
         <Header/>
       </header>
       <main>
-      <Switch sx={{bottom:20,left:"50%",marginLeft: -95,position:"fixed"}} checked={darktheme} onChange={()=>setdarkTheme(!darktheme)}/>
+      <Switch sx={{bottom:20,left:"50%",marginLeft: -95, position: 'fixed',background: 'rgba(81,186,66,1)', borderRadius:4}} checked={darktheme} onChange={()=>setdarkTheme(!darktheme)}/>
         <Routes>
         {/* <Route path ='/auth' element={<Auth/>}/> */}
             <Route path ='/' element={<Main/>}/>
@@ -71,7 +72,7 @@ function App() {
             <Route path ='/myBlogs/:id' element={<Protected isLoggedIn={isLoggedIn}><BlogDetails/></Protected>} />
             <Route path ='/myCodes' element={<Protected isLoggedIn={isLoggedIn}><UserCodes/></Protected>} />
             <Route path ='/myCodes/:id' element={<Protected isLoggedIn={isLoggedIn}><CodeDetails/></Protected>} />
-
+            <Route path='*' element={<NotFound/>}/>
         </Routes>
       </main>
     
