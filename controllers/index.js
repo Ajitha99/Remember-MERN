@@ -33,6 +33,9 @@ const signup = async (req, res, next) =>{
     if(existUser){
         return res.status(400).json({message: "User already exists! Use Login"})
     }
+    if(password.length < 6){
+        return res.status(404).json({message:"password should be atleast 6 characters"})
+    }
     const hashedPwd = bcrypt.hashSync(password);
     const user = new User({
         name, //name: name
@@ -64,10 +67,12 @@ const login = async (req, res, next) =>{
     }
     if(!existUser){
         return res.status(404).json({message: "User doesn't exist, please signup!"})
+        // return res.status(404).json({message: "User doesn't exist, please signup!",email})
     }
     const isPwdCorrect = bcrypt.compareSync(password,existUser.password);
     if(!isPwdCorrect){
-        return res.status(400).json({message: "Incorrect Password"})
+        return res.status(400).json({message: "Incorrect Password"});
+        // return res.status(400).json({message: "Incorrect Password",email})
     }
     //generating a jwt token for the user-after login is successful;
     //using user_id to generate JWT token -uses {HSA-256} behind the scene

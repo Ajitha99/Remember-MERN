@@ -13,6 +13,7 @@ function SignUp() {
         password :""
     });
     const [createdItem, setCreatedItem] = useState(null);
+    const [status, setStatus] = useState("");
     const handleChange= (e) =>{
 
     setInputs((prevState) => ({
@@ -27,7 +28,8 @@ function SignUp() {
         name: inputs.name,
         email: inputs.email,
         password: inputs.password
-        }).catch(err => console.log(err));
+        // }).catch(err => console.log(err));
+    }).catch(err => setStatus(err.response.status));
         const data = await res.data;
         return data;
     }
@@ -67,6 +69,7 @@ function SignUp() {
             backgroundColor: "#5a7be3",
             color:"white"
             }}}>SignUp</Button>
+            {status && <p style={{color:'red'}}>{(status === 404)?"Password should be atleast 6 characters": "User already exists! Use Login"}</p> }
             </Box>
         </form>
     </div>

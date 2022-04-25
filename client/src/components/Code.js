@@ -1,10 +1,13 @@
 import { Avatar, Card, CardContent, CardHeader, Typography, IconButton, Box } from '@mui/material'
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import ModeEditOutlineIcon from '@mui/icons-material/ModeEditOutline';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import apiUrl from '../appConfig';
 import axios from 'axios';
+
+import Prism from "prismjs";
+import './prism.css';
 
 const Code = ({id , title,snippet, userName , isUser}) => {
   console.log(title,isUser);
@@ -22,6 +25,10 @@ const Code = ({id , title,snippet, userName , isUser}) => {
   const handleDelete = () =>{
     deleteCode().then((data) => console.log(data)).then(() =>navigate("/codes"));
   }
+useEffect(()=>{
+  Prism.highlightAll();
+})
+
   return (
     <div>
       <Card sx={{ width: "50%", margin:'auto',marginTop: 2,marginBottom: 3, padding: 2, borderRadius: 3, boxShadow :"5px 5px 10px #69b4b9","&:hover": { 
@@ -37,8 +44,13 @@ const Code = ({id , title,snippet, userName , isUser}) => {
         // subheader="September 14, 2016"
         />
         <CardContent>
-            <Typography variant="body2" color="text.secondary">
-                {snippet}
+            <Typography variant="body2" color="text.secondary" >
+              <pre>
+                <code className="language-javascript">
+                  {snippet}
+                </code>
+              </pre>
+                {/* {snippet} */}
             </Typography>
         </CardContent>
         {

@@ -1,4 +1,4 @@
-import { Box, Button, TextField,Typography } from '@mui/material'
+import { Box, Button, TextField,Typography,InputLabel } from '@mui/material'
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux';
 import { authActions } from '../store';
@@ -12,7 +12,7 @@ function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  // const [loginStatus, setLoginStatus] = useState("");
+  const [status, setStatus] = useState("");
   
   const [inputs,setInputs] = useState({
       email : "",
@@ -31,13 +31,14 @@ const sendRequest = async () =>{
   const res = await axios.post(`${apiUrl}/users/login`, {
       email: inputs.email,
       password: inputs.password
-  }).catch(error => console.log(error));
-  const data = await res.data;
  
-  // window.alert(data.message);
-  console.log(data);
+// }).catch(error => console.log(error.response.status));
+}).catch(error => setStatus(error.response.status));
+  // console.log(res.response.message);
+  const data = await res.data;
   return data;
 }
+
 
 
 const handleSubmit = (e) =>{
@@ -48,6 +49,7 @@ const handleSubmit = (e) =>{
   // .then(()=>dispatch(authActions.login())).then(()=>navigate("/blogs"))
 }
 
+// console.log(loginStatus);
 return (
   <div>
       <form onSubmit={handleSubmit}>
@@ -69,7 +71,7 @@ return (
           backgroundColor: "#5a7be3",
           color:"white"
           }}}>Login</Button>
-          {/* <h1>{loginStatus}</h1>  can also use <InputLabel> from mui*/}
+          {status && <p style={{color:'red'}}>{(status === 404)?"User doesn't exist! Sign up!": "Incorrect password"}</p> }
           </Box>
       </form>
   </div>
@@ -77,3 +79,6 @@ return (
 }
 
 export default Login
+
+
+// can also use <InputLabel> from mui
