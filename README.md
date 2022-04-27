@@ -33,6 +33,9 @@ https://famous-dusk-8b3741.netlify.app/
 #### Heroku Links:
 https://remember-mern.herokuapp.com/api/blogs
 https://remember-mern.herokuapp.com/api/codes
+### Technologies Used
+
+![technologies](https://user-images.githubusercontent.com/97922836/165500070-cd0c316c-6f03-44cd-9285-ecf33db0bd90.png)
 
 ### Database Models
 <hr/>
