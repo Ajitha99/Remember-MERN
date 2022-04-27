@@ -1,7 +1,21 @@
 ### REMEMBER TO CODE
 <hr/>
 
-REMEMBER is a coding blog website, where user can have access to all the blogs and code snippets posted by different users. User can create, update, delete blog posts and code snipppets.
+
+Why remember when you have 'Remeber to code!'? 
+
+
+Did some stack overflow code worked - write a blog on how and where you used it.
+
+
+You wrote a custom code... create a code snippet!
+
+
+So you don't have to remember all these! Just remember "<REMEMBER/> TO CODE".
+
+
+
+REMEMBER TO CODE is a coding blog website, where user can have access to all the blogs and code snippets posted by different users. User can create, update, delete blog posts and code snipppets.
 
 ### Getting Started
 <hr/>
