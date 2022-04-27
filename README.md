@@ -1,14 +1,14 @@
 ### REMEMBER TO CODE
-    Why remember when you have Remeber to code!? 
-    Did some stack-over flow code worked- write a blog when and how you used it.
-    You wrote a custom code.. create a code snippets!
-    So you don't have to remember all these! Just remember "<REMEMBER/> TO CODE".
+Why remember when you have Remeber to code!? 
+Did some stack-over flow code worked- write a blog when and how you used it.
+You wrote a custom code.. create a code snippets!
+So you don't have to remember all these! Just remember "<REMEMBER/> TO CODE".
 
-    REMEMBER is a coding blog website, where user can have access to all the blogs and code snippets posted by different users. It allows to create own blog posts and code snipppets.
+REMEMBER is a coding blog website, where user can have access to all the blogs and code snippets posted by different users. It allows to create own blog posts and code snipppets.
 
 ### Getting Started
-    1. It is a full stack (MERN) project with authentication and authorization.
-    2. Performs all CRUD operations.
+1. It is a full stack (MERN) project with authentication and authorization.
+2. Performs all CRUD operations.
 
 
 ### Deployed Links
@@ -21,9 +21,9 @@ https://remember-mern.herokuapp.com/api/codes
 
 ### Database Models:
 
-    1. USER
-    2. Blog
-    2. Code
+1. USER
+2. Blog
+3. Code
 
 ### API End Points:
 
@@ -33,7 +33,6 @@ https://remember-mern.herokuapp.com/api/codes
     POST: https://remember-mern.herokuapp.com/api/users/signup
 
 ##### Blog
-
     GET: https://remember-mern.herokuapp.com/api/blogs
     GET: https://remember-mern.herokuapp.com/api/blogs/:id  -- GET blog by blog id
     GET: https://remember-mern.herokuapp.com/api/blogs/user/:id -- get blog by user id
@@ -50,20 +49,15 @@ https://remember-mern.herokuapp.com/api/codes
     PUT: https://remember-mern.herokuapp.com/api/codes/update/:id -- update code snippet by code snippet id
     DELETE: https://remember-mern.herokuapp.com/api/codes/:id --deletes code snippet by code snippet id
     
-### Wireframes
-    ![](gitImg\picture-1.jpg)
-    ![](gitImg\pictureOne.jpg)
-    ![](gitImg\pictureTwo.jpg)
-    ![](gitImg\pictureThree.jpg)
-    ![](gitImg\pictureFour.jpg)
+### Wireframes     
+
+
+
+
+
+![picture](https://user-images.githubusercontent.com/97922836/165430971-0c5b5aa5-408c-4f8d-a721-443e2ddde577.jpg)
     
-    <img src = "gitImg\picture-1.jpg"/>
-
-    <img src = "gitImg\picture-2.jpg"/>
-
-    <img src = "gitImg\picture-3.jpg"/>
-
-    <img src = "gitImg\picture-4.jpg"/>
+    
 
 ### ERD-Diagram:
 
