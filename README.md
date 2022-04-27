@@ -52,6 +52,11 @@ https://remember-mern.herokuapp.com/api/codes
     
 ### Wireframes
     ![](gitImg\picture-1.jpg)
+    ![](gitImg\pictureOne.jpg)
+    ![](gitImg\pictureTwo.jpg)
+    ![](gitImg\pictureThree.jpg)
+    ![](gitImg\pictureFour.jpg)
+    
     <img src = "gitImg\picture-1.jpg"/>
 
     <img src = "gitImg\picture-2.jpg"/>
