@@ -11,11 +11,11 @@ Did some stack overflow code worked - write a blog on how and where you used it.
 You wrote a custom code... create a code snippet!
 
 
-So you don't have to remember all these! Just remember "<REMEMBER/> TO CODE".
+So you don't have to remember all these! Just remember "REMEMBER TO CODE".
 
 
 
-REMEMBER TO CODE is a coding blog website, where user can have access to all the blogs and code snippets posted by different users. User can create, update, delete blog posts and code snipppets.
+<b>REMEMBER TO CODE is a coding blog website, where user can access all the blogs and code snippets posted by different users. This application allows user to create, update, delete blog posts and code snipppets.</b>
 
 ### Getting Started
 <hr/>
@@ -139,6 +139,15 @@ https://remember-mern.herokuapp.com/api/codes
 7. bcryptjs
 8. jsonwebtoken
 9. cookie-parser
+
+
+### Plans:
+<hr/>
+
+1. Implement refresh tokens
+2. Adding categories to blogs and code snippets
+3. Adding like, comment features
+4. displaying code blocks vertically with line numbers
 
 
 
