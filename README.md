@@ -51,7 +51,7 @@ https://remember-mern.herokuapp.com/api/codes
     DELETE: https://remember-mern.herokuapp.com/api/codes/:id --deletes code snippet by code snippet id
     
 ### Wireframes
-    [](C:\Ajitha\Per_Scholas\Module_3\final_project\Project_Blog\gitImg\picture-1.jpg)
+    ![](gitImg\picture-1.jpg)
     <img src = "gitImg\picture-1.jpg"/>
 
     <img src = "gitImg\picture-2.jpg"/>
