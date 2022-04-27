@@ -1,4 +1,4 @@
-### <REMEMBER/> TO CODE
+### REMEMBER TO CODE
     Why remember when you have Remeber to code!? 
     Did some stack-over flow code worked- write a blog when and how you used it.
     You wrote a custom code.. create a code snippets!
@@ -16,10 +16,8 @@
 #### Netlify Link:
 https://famous-dusk-8b3741.netlify.app/
 #### Heroku Links:
-
-        https://remember-mern.herokuapp.com/api/blogs
-
-        https://remember-mern.herokuapp.com/api/codes
+https://remember-mern.herokuapp.com/api/blogs
+https://remember-mern.herokuapp.com/api/codes
 
 ### Database Models:
 
