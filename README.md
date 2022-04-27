@@ -15,9 +15,7 @@
 ### Deployed Links
 
 #### Netlify Link:
-
-        https://famous-dusk-8b3741.netlify.app/
-
+https://famous-dusk-8b3741.netlify.app/
 #### Heroku Links:
 
         https://remember-mern.herokuapp.com/api/blogs
