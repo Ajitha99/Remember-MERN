@@ -148,6 +148,7 @@ https://remember-mern.herokuapp.com/api/codes
 2. Adding categories to blogs and code snippets
 3. Adding like, comment features
 4. displaying code blocks vertically with line numbers
+5. Add blog and Add code form validations
 
 
 
