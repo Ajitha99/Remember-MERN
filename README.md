@@ -121,7 +121,7 @@ https://remember-mern.herokuapp.com/api/codes
 2. react redux
 3. axios
 4. material ui
-   npm install @mui/material @emotion/react @emotion/styled
+   (npm install @mui/material @emotion/react @emotion/styled)
 5. prismjs
 
 
