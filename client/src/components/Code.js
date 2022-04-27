@@ -51,6 +51,8 @@ useEffect(()=>{
                 </code>
               </pre>
                 {/* {snippet} */}
+                <br/>
+              <b>{userName}: </b> Code Snippets
             </Typography>
         </CardContent>
         {

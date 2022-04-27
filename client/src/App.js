@@ -20,6 +20,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Switch } from "@mui/material";
 import NotFound from "./components/NotFound";
+import Footer from "./components/Footer";
 
 // const darkTheme = createTheme({
 //   palette: {
@@ -51,13 +52,14 @@ function App() {
 
 
   return <React.Fragment>
-    <ThemeProvider theme = {darkTheme}>
+    <ThemeProvider theme = {darkTheme} sx={{position:'relative', minheight: '100vh'}}>
     <CssBaseline />
       <header>
         <Header/>
       </header>
       <main>
-      <Switch sx={{bottom:20,left:"50%",marginLeft: -95, position: 'fixed',background: 'rgba(81,186,66,1)', borderRadius:4}} checked={darktheme} onChange={()=>setdarkTheme(!darktheme)}/>
+      <Switch sx={{bottom:30,left:"50%",marginLeft: -95, position: 'fixed',background: 'rgba(81,186,66,1)', borderRadius:4}} checked={darktheme} onChange={()=>setdarkTheme(!darktheme)}/>
+      
         <Routes>
         {/* <Route path ='/auth' element={<Auth/>}/> */}
             <Route path ='/' element={<Main/>}/>
@@ -75,8 +77,9 @@ function App() {
             <Route path='*' element={<NotFound/>}/>
         </Routes>
       </main>
-    
+      <footer style={{position:'fixed', bottom:0,width:"100%", height: '3rem'}}><Footer/></footer>
     </ThemeProvider>
+    
   </React.Fragment>
 }
 

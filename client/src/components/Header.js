@@ -8,6 +8,7 @@ import { authActions } from '../store';
 
 
 
+
 const Header = () => {
  
   const dispatch = useDispatch();
@@ -24,7 +25,8 @@ const Header = () => {
   return (
     <AppBar position='sticky' sx={{background:"linear-gradient(90deg, rgba(81,186,66,1) 25%, rgba(0,242,255,1) 80%);"}}>
       <Toolbar>
-          <Typography variant='h4'sx={{color:'white'}}><img style={{width: "250px" ,height: "100px" }}src= {image} alt='just text' onClick = {()=>navigate("/")}/></Typography>
+          <Typography variant='h4'sx={{color:'white'}}><img style={{width: "250px" ,height: "100px" }}src= {image} alt='just text' onClick = {()=>navigate("/")}/>
+          </Typography>
          
   
 
